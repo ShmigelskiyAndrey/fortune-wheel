@@ -1,3 +1,69 @@
 .wheel {
-    color: aqua;
+    --items: 5;
+    all: unset;
+  aspect-ratio: 1 / 1;
+    width: 600px;
+    height: 600px;
+    background: crimson;
+    container-type: inline-size;
+    direction: ltr;
+    display: grid;
+    place-content: center start;
 }
+
+.elem {
+    align-content: center;
+    background: deepskyblue;
+    display: grid;
+    font-size: 5cqi;
+    grid-area: 1 / -1;
+    list-style: none;
+    box-sizing: border-box;
+    padding-left: 1ch;
+    transform-origin: center right;
+    width: 40cqi;
+}
+
+.elem {
+    &:nth-of-type(1) { --idx: 1; }
+    &:nth-of-type(2) { --idx: 2; }
+    &:nth-of-type(3) { --idx: 3; }
+    &:nth-of-type(4) { --idx: 4; }
+    &:nth-of-type(5) { --idx: 5; }
+}
+
+.elem {
+    rotate: calc(360deg / var(--items) * calc(var(--idx) - 1));
+    background: hsl(calc(360deg / var(--items) *
+    calc(var(--idx))), 100%, 75%);
+
+    /* height: calc((2 * pi * 50cqi) / var(--items)); */
+    height: calc(2*40cqi*tan(180deg/var(--items)));
+    
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+
+
+
+
+
+
+/* align-content: center;
+    display: grid;
+    grid-area: 1 / -1;
+    transform-origin: center right;
+    box-sizing: border-box;
+
+    font-size: 4rem;
+    padding-left: 50px;
+    width: 300px; */
+
+    /* .wheel {
+        width: 600px;
+        height: 600px;
+        background-color: grey;
+        display: grid;
+        place-content: center start;
+        position: relative;
+    } */
