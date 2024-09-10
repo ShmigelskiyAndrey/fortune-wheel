@@ -1,15 +1,13 @@
 .wheel {
     --items: 12;
-    all: unset;
-    aspect-ratio: 1 / 1;
+    padding: 0;
+    aspect-ratio: 1/1;
     width: 600px;
-    height: 600px;
-    background: crimson;
-    container-type: inline-size;
-    direction: ltr;
+    height: auto;
+    container-type: size;
     display: grid;
     place-content: center start;
-    clip-path: inset(0 0 0 0 round 50%);
+    clip-path: circle();
 }
 
 .elem {
@@ -26,52 +24,34 @@
 }
 
 .elem {
-    &:nth-of-type(1) { --idx: 1; }
-    &:nth-of-type(2) { --idx: 2; }
-    &:nth-of-type(3) { --idx: 3; }
-    &:nth-of-type(4) { --idx: 4; }
-    &:nth-of-type(5) { --idx: 5; }
-    &:nth-of-type(6) { --idx: 6; }
-    &:nth-of-type(7) { --idx: 7; }
-    &:nth-of-type(8) { --idx: 8; }
-    &:nth-of-type(9) { --idx: 9; }
-    &:nth-of-type(10) { --idx: 10; }
-    &:nth-of-type(11) { --idx: 11; }
-    &:nth-of-type(12) { --idx: 12; }
+    &:nth-of-type(1) { --idx: 0; }
+    &:nth-of-type(2) { --idx: 1; }
+    &:nth-of-type(3) { --idx: 2; }
+    &:nth-of-type(4) { --idx: 3; }
+    &:nth-of-type(5) { --idx: 4; }
+    &:nth-of-type(6) { --idx: 5; }
+    &:nth-of-type(7) { --idx: 6; }
+    &:nth-of-type(8) { --idx: 7; }
+    &:nth-of-type(9) { --idx: 8; }
+    &:nth-of-type(10) { --idx: 9; }
+    &:nth-of-type(11) { --idx: 10; }
+    &:nth-of-type(12) { --idx: 11; }
 }
 
 .elem {
-    rotate: calc(360deg / var(--items) * calc(var(--idx) - 1));
+    rotate: calc(360deg / var(--items) * var(--idx));
     background: hsl(calc(360deg / var(--items) *
     calc(var(--idx))), 100%, 75%);
-
-    /* height: calc((2 * pi * 50cqi) / var(--items)); */
-    height: calc(2*50cqi*tan(180deg/var(--items)));
-    
+    height: calc(2*50cqi*tan(179.9deg/var(--items)));
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
-
-
-
-
-
-
-/* align-content: center;
-    display: grid;
-    grid-area: 1 / -1;
-    transform-origin: center right;
-    box-sizing: border-box;
-
-    font-size: 4rem;
-    padding-left: 50px;
-    width: 300px; */
-
-    /* .wheel {
-        width: 600px;
-        height: 600px;
-        background-color: grey;
-        display: grid;
-        place-content: center start;
-        position: relative;
-    } */
+.dodo {
+    width: 600px;
+    height: 600px;
+    --a: 4;
+    --b: calc(360deg/var(--a));
+    --c: ;
+    background: conic-gradient(red var(--b), orange var(--b) calc(2*var(--b)), yellow calc(2*var(--b)) calc(3*var(--b)), green calc(3*var(--b)));
+    border-radius: 50%;
+}
