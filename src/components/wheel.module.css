@@ -46,12 +46,3 @@
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
-.dodo {
-    width: 600px;
-    height: 600px;
-    --a: 4;
-    --b: calc(360deg/var(--a));
-    --c: ;
-    background: conic-gradient(red var(--b), orange var(--b) calc(2*var(--b)), yellow calc(2*var(--b)) calc(3*var(--b)), green calc(3*var(--b)));
-    border-radius: 50%;
-}
