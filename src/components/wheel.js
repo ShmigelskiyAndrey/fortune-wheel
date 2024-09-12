@@ -1,19 +1,17 @@
 import styles from "./wheel.module.css"
 
-let arr = ["one", "two", "three", "four"]
-
 function Wheel() {
-  const list = document.getElementById("da")
+  const arr = ["one", "two", "three", "four"]
 
- if (document.readyState === 'complete') {
-  console.log("yyy")
-  arr.map((elem)=>(
-    list.append(document.createElement("div"))
-  ))
-}
-  
+  const generateElems = ()=> {
+    const elem = arr.map((text)=>(<li className={styles.elem}>{text}</li>))
+    return <ul className={styles.wheel}>{elem}</ul>
+  }
+   
     return (
-      <ul className={styles.wheel} id="da">
+      <div className={styles.container}>
+        {generateElems()}
+
         {/* <li className={styles.elem}>one</li>
         <li className={styles.elem}>two</li>
         <li className={styles.elem}>three</li>
@@ -26,9 +24,10 @@ function Wheel() {
         <li className={styles.elem}>ten</li>
         <li className={styles.elem}>eleven</li>
         <li className={styles.elem}>twelve</li> */}
-      </ul>
+      </div>
     );
     
   }
+
   
   export { Wheel }
