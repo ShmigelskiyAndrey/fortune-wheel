@@ -12,6 +12,7 @@
     height: auto;
     container-type: size;
     display: grid;
+    grid-area: 1 / -1;
     place-content: center start;
     clip-path: circle();
 }
@@ -37,3 +38,15 @@
     clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
+.spin {
+    aspect-ratio: 1/1;
+    width: 150px;
+    grid-area: 1 / -1;
+    place-self: center;
+    z-index: 2;
+    border: none;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    font-size: 3cqi;
+}
