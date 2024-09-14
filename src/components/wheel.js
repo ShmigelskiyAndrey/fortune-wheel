@@ -11,30 +11,33 @@ function Wheel() {
 
   const rotation = () => {
     const wheel = document.getElementById("wheel");
-    const rotationDegree = (Math.random() * 360) + 1800;
-
-    let animation;
+    const spinBtn = document.getElementById("spinBtn") 
     let previousRotationDegree = 0;
-    const newRotationDegree = previousRotationDegree + rotationDegree;
 
-    animation = wheel.animate([
-      { transform: `rotate(${previousRotationDegree}deg)` },
-      { transform: `rotate(${newRotationDegree}deg)` }
-    ], {
-      duration: 4000,
-      direction: 'normal',
-      easing: 'cubic-bezier(0.440, -0.205, 0.000, 1.130)',
-      fill: 'forwards',
-      iterations: 1
-    });
+    spinBtn.addEventListener('click', () => {
+      const rotationDegree = (Math.random() * 360) + 1800;
+      const newRotationDegree = previousRotationDegree + rotationDegree;
 
-    console.log(animation)
+      wheel.animate([
+        { transform: `rotate(${previousRotationDegree}deg)` },
+        { transform: `rotate(${newRotationDegree}deg)` }
+      ], {
+        duration: 4000,
+        direction: 'normal',
+        easing: 'cubic-bezier(0.440, -0.205, 0.000, 1.130)',
+        fill: 'forwards',
+        iterations: 1
+      });
+      previousRotationDegree = newRotationDegree;
+    })
   }
+
+  setTimeout(()=> {rotation()}, 1)
 
     return (
       <div className={styles.container} style={{"--quantity": quantity}}>
         {generateElems()}
-        <button className={styles.spin} onClick={()=> {rotation()}}>Spin</button>
+        <button className={styles.spin} id="spinBtn">Spin</button>
       </div>
     );
     
