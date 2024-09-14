@@ -1,14 +1,25 @@
 .container {
-    width: 600px;
-    height: 600px;
+    width: var(--size);
+    height: var(--size);
     display: grid;
     place-content: center center;
+}
+
+.picker {
+    height: 50px;
+    width: 50px;
+    background-color: crimson;
+    clip-path: polygon(50% 100%,100% 0,0 0);
+    position: absolute;
+    place-self: start center;
+    margin-top: -10px;
+    z-index: 2;
 }
 
 .wheel {
     padding: 0;
     aspect-ratio: 1/1;
-    width: 600px;
+    width: var(--size);
     height: auto;
     container-type: size;
     display: grid;

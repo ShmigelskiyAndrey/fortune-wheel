@@ -6,7 +6,7 @@ function Wheel() {
 
   const generateElems = () => {
     const elem = arr.map((elem, index)=>(<li className={styles.elem} style={{"--idx": index}} key={index}>{elem}</li>))
-    return <ul className={styles.wheel} id="wheel">{elem}</ul>
+    return <ul className={styles.wheel} id="wheel" style={{"--size": "600px"}}>{elem}</ul>
   }
 
   const rotation = () => {
@@ -36,6 +36,7 @@ function Wheel() {
 
     return (
       <div className={styles.container} style={{"--quantity": quantity}}>
+        <div className={styles.picker}></div>
         {generateElems()}
         <button className={styles.spin} id="spinBtn">Spin</button>
       </div>
