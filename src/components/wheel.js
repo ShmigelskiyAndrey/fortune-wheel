@@ -29,7 +29,19 @@ function Wheel() {
         iterations: 1
       });
       previousRotationDegree = newRotationDegree;
+      result(rotationDegree);
     })
+  }
+
+  const result = (rotationDegree) => {
+    let degree = rotationDegree - 1800;
+    const degreePerElement = 360 / quantity;
+    let count = 0;
+    while (degree > 0) {
+      count++;
+      degree = degree - degreePerElement;
+    }
+    console.log(count)
   }
 
   setTimeout(()=> {rotation()}, 1)
