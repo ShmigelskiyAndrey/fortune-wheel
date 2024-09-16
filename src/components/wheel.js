@@ -1,7 +1,7 @@
 import styles from "./wheel.module.css"
 
 function Wheel() {
-  const arr = ["one", "two", "three", "four", "five", "six"]
+  const arr = ["one", "two", "three", "four"]
   const quantity = arr.length
 
   const generateElems = () => {
@@ -35,13 +35,16 @@ function Wheel() {
 
   const result = (rotationDegree) => {
     let degree = rotationDegree - 1800;
+    console.log(degree)
     const degreePerElement = 360 / quantity;
-    let count = 0;
-    while (degree > 0) {
-      count++;
-      degree = degree - degreePerElement;
+    console.log(degreePerElement)
+
+    if (degree <= degreePerElement/2 || 360 - degree <= degreePerElement/2) {
+      return console.log("0");
     }
-    console.log(count)
+
+    let resultElement = Math.floor((degree - (degreePerElement / 2)) / degreePerElement);
+    console.log(resultElement)
   }
 
   setTimeout(()=> {rotation()}, 1)
