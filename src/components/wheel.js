@@ -45,11 +45,17 @@ function Wheel() {
     if (realRotationDegree <= degreePerElement/2 || 360 - realRotationDegree <= degreePerElement/2) {
       choosenElement = 0;
     } else {
-      let resultElement = Math.floor((realRotationDegree + (degreePerElement / 2)) / degreePerElement);
-      choosenElement = resultElement;
+      choosenElement = Math.floor((realRotationDegree + (degreePerElement / 2)) / degreePerElement);
     }
 
-    // arr[choosenElement].a
+    const resultElement = document.querySelector(`[style*='--idx: ${choosenElement}']`);
+
+    resultElement.animate([
+      {transform: "scale(1.2, 1.2)"},
+    ], {
+      delay: 4000,
+      duration: 2000,
+    })
   }
 
   setTimeout(()=> {rotation()}, 1)
