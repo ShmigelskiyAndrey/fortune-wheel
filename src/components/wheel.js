@@ -1,7 +1,7 @@
 import styles from "./wheel.module.css"
 
 function Wheel() {
-  const arr = ["one", "two", "three", "four"]
+  const arr = ["one", "two", "three", "four", "five"]
   const quantity = arr.length
 
   const generateElems = () => {
@@ -17,6 +17,7 @@ function Wheel() {
     spinBtn.addEventListener('click', () => {
       const rotationDegree = (Math.random() * 360) + 1800;
       const newRotationDegree = previousRotationDegree + rotationDegree;
+      const realRotationDegree = newRotationDegree - 1800;
 
       wheel.animate([
         { transform: `rotate(${previousRotationDegree}deg)` },
@@ -28,23 +29,27 @@ function Wheel() {
         fill: 'forwards',
         iterations: 1
       });
-      previousRotationDegree = newRotationDegree;
-      result(rotationDegree);
+      previousRotationDegree = realRotationDegree;
+      result(realRotationDegree);
     })
   }
 
-  const result = (rotationDegree) => {
-    let degree = rotationDegree - 1800;
-    console.log(degree)
+  const result = (realRotationDegree) => {
     const degreePerElement = 360 / quantity;
-    console.log(degreePerElement)
+    let choosenElement;
 
-    if (degree <= degreePerElement/2 || 360 - degree <= degreePerElement/2) {
-      return console.log("0");
+    while (realRotationDegree >= 360) {
+      realRotationDegree = realRotationDegree - 360;
+    };
+
+    if (realRotationDegree <= degreePerElement/2 || 360 - realRotationDegree <= degreePerElement/2) {
+      choosenElement = 0;
+    } else {
+      let resultElement = Math.floor((realRotationDegree + (degreePerElement / 2)) / degreePerElement);
+      choosenElement = resultElement;
     }
 
-    let resultElement = Math.floor((degree - (degreePerElement / 2)) / degreePerElement);
-    console.log(resultElement)
+    // arr[choosenElement].a
   }
 
   setTimeout(()=> {rotation()}, 1)
