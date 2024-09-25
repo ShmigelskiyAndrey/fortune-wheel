@@ -5,7 +5,7 @@ function Wheel() {
   const quantity = arr.length
 
   const generateElems = () => {
-    const elem = arr.map((elem, index)=>(<li className={styles.elem} style={{"--idx": index}} key={index}>{elem}</li>))
+    const elem = arr.map((elem, index)=>(<li className={styles.elem} style={{"--idx": index}} key={index}><span style={{"--position": index}}>{elem}</span></li>))
     return <ul className={styles.wheel} id="wheel" style={{"--size": "600px"}}>{elem}</ul>
   }
 
@@ -48,13 +48,16 @@ function Wheel() {
       choosenElement = Math.floor((realRotationDegree + (degreePerElement / 2)) / degreePerElement);
     }
 
-    const resultElement = document.querySelector(`[style*='--idx: ${choosenElement}']`);
+    const resultElement = document.querySelector(`[style*='--position: ${choosenElement}']`);
 
     resultElement.animate([
-      {transform: "scale(1.2, 1.2)"},
+      {transform: "scale(1, 1)"},
+      {transform: "scale(1.1, 1.3)"},
+      {transform: "scale(1, 1)"},
     ], {
       delay: 4000,
-      duration: 2000,
+      duration: 1000,
+      easing: 'cubic-bezier(0.12, 0, 0.39, 0)',
     })
   }
 
