@@ -49,6 +49,7 @@ function Wheel() {
     }
 
     const resultElement = document.querySelector(`[style*='--position: ${choosenElement}']`);
+    console.log(resultElement)
 
     resultElement.animate([
       {transform: "scale(1, 1)"},
